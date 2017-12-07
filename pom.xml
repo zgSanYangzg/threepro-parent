@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.threepro.showtime</groupId>
+    <artifactId>threepro-parent</artifactId>
+    <name>threepro-parent</name>
+    <packaging>pom</packaging>
+    <version>${apis.version}</version>
+
+    <properties>
+        <env>DEV</env>
+        <boot.version>1.5.4.RELEASE</boot.version>
+        <cloud.version>Dalston.SR4</cloud.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+        <apis.version>threepro-0.0.1</apis.version>
+        <junit-version>4.12</junit-version>
+
+    </properties>
+
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <!-- Import dependency management from Spring Boot -->
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit-version}</version>
+                <scope>test</scope>
+            </dependency>
+
+        </dependencies>
+
+
+    </dependencyManagement>
+
+
+    <profiles>
+        <profile>
+            <id>DEV</id>
+            <properties>
+                <env>DEV</env>
+                <maven.test.skip>false</maven.test.skip>
+            </properties>
+            <!-- 设置默认环境 -->
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+
+        <profile>
+            <id>QA</id>
+            <properties>
+                <env>QA</env>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>PRODUCT</id>
+            <properties>
+                <env>PRODUCT</env>
+            </properties>
+        </profile>
+    </profiles>
+
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <configuration>
+                        <source>${java.version}</source>
+                        <target>${java.version}</target>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${boot.version}</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>repackage</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+
+    <modules>
+        <module>three-module-hello</module>
+        <module>three-third-eureka-server</module>
+        <module>three-module-ribbon-consumer</module>
+        <module>three-module-dashboard</module>
+        <module>three-module-turbine</module>
+        <module>three-module-turbine-amqp</module>
+        <module>three-module-feign-consumer</module>
+        <module>three-api-hello</module>
+        <module>three-api-gateway</module>
+        <module>three-module-config-server</module>
+        <module>three-module-config-client</module>
+        <module>three-module-rabbitmq-hello</module>
+        <module>three-module-stream-hello</module>
+        <module>three-module-traceA</module>
+        <module>three-module-traceB</module>
+
+        <module>three-core-database</module>
+        <module>three-module-config</module>
+    </modules>
+
+</project>

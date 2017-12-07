@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/three-api-gateway/three-api-gateway.iml" filepath="$PROJECT_DIR$/three-api-gateway/three-api-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/three-api-hello/three-api-hello.iml" filepath="$PROJECT_DIR$/three-api-hello/three-api-hello.iml" />
+      <module fileurl="file://F:/git-work/three-config/three-config.iml" filepath="F:/git-work/three-config/three-config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/three-core-database/three-core-database.iml" filepath="$PROJECT_DIR$/three-core-database/three-core-database.iml" />
+      <module fileurl="file://$PROJECT_DIR$/three-module-config/three-module-config.iml" filepath="$PROJECT_DIR$/three-module-config/three-module-config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/three-module-config-client/three-module-config-client.iml" filepath="$PROJECT_DIR$/three-module-config-client/three-module-config-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/three-module-config-server/three-module-config-server.iml" filepath="$PROJECT_DIR$/three-module-config-server/three-module-config-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/three-module-dashboard/three-module-dashboard.iml" filepath="$PROJECT_DIR$/three-module-dashboard/three-module-dashboard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/three-module-feign-consumer/three-module-feign-consumer.iml" filepath="$PROJECT_DIR$/three-module-feign-consumer/three-module-feign-consumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/three-module-hello/three-module-hello.iml" filepath="$PROJECT_DIR$/three-module-hello/three-module-hello.iml" />
+      <module fileurl="file://$PROJECT_DIR$/three-module-rabbitmq-hello/three-module-rabbitmq-hello.iml" filepath="$PROJECT_DIR$/three-module-rabbitmq-hello/three-module-rabbitmq-hello.iml" />
+      <module fileurl="file://$PROJECT_DIR$/three-module-ribbon-consumer/three-module-ribbon-consumer.iml" filepath="$PROJECT_DIR$/three-module-ribbon-consumer/three-module-ribbon-consumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/three-module-stream-hello/three-module-stream-hello.iml" filepath="$PROJECT_DIR$/three-module-stream-hello/three-module-stream-hello.iml" />
+      <module fileurl="file://$PROJECT_DIR$/three-module-traceA/three-module-traceA.iml" filepath="$PROJECT_DIR$/three-module-traceA/three-module-traceA.iml" />
+      <module fileurl="file://$PROJECT_DIR$/three-module-traceB/three-module-traceB.iml" filepath="$PROJECT_DIR$/three-module-traceB/three-module-traceB.iml" />
+      <module fileurl="file://$PROJECT_DIR$/three-module-turbine/three-module-turbine.iml" filepath="$PROJECT_DIR$/three-module-turbine/three-module-turbine.iml" />
+      <module fileurl="file://$PROJECT_DIR$/three-module-turbine-amqp/three-module-turbine-amqp.iml" filepath="$PROJECT_DIR$/three-module-turbine-amqp/three-module-turbine-amqp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/three-third-eureka-server/three-third-eureka-server.iml" filepath="$PROJECT_DIR$/three-third-eureka-server/three-third-eureka-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/three-module-ribbon-consumer/three.module.feign-consumer.iml" filepath="$PROJECT_DIR$/three-module-ribbon-consumer/three.module.feign-consumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/threepro-parent.iml" filepath="$PROJECT_DIR$/threepro-parent.iml" />
+    </modules>
+  </component>
+</project>

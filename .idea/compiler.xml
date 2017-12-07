@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="three-api-gateway" />
+        <module name="three-api-hello" />
+        <module name="three-core-database" />
+        <module name="three-module-api-gateway" />
+        <module name="three-module-config" />
+        <module name="three-module-config-client" />
+        <module name="three-module-config-server" />
+        <module name="three-module-dashboard" />
+        <module name="three-module-feign-consumer" />
+        <module name="three-module-hello" />
+        <module name="three-module-rabbitmq-hello" />
+        <module name="three-module-ribbon-consumer" />
+        <module name="three-module-stream-hello" />
+        <module name="three-module-traceA" />
+        <module name="three-module-traceB" />
+        <module name="three-module-turbine" />
+        <module name="three-module-turbine-amqp" />
+        <module name="three-third-eureka-server" />
+        <module name="three.module.feign-consumer" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="three-api-gateway" target="1.8" />
+      <module name="three-api-hello" target="1.8" />
+      <module name="three-core-database" target="1.8" />
+      <module name="three-core-database-spr" target="1.8" />
+      <module name="three-core-foundation" target="1.8" />
+      <module name="three-hotdeploy-devtools" target="1.8" />
+      <module name="three-module-api-gateway" target="1.8" />
+      <module name="three-module-config" target="1.8" />
+      <module name="three-module-config-client" target="1.8" />
+      <module name="three-module-config-server" target="1.8" />
+      <module name="three-module-dashboard" target="1.8" />
+      <module name="three-module-feign-consumer" target="1.8" />
+      <module name="three-module-hello" target="1.8" />
+      <module name="three-module-invoicing" target="1.8" />
+      <module name="three-module-rabbitmq-hello" target="1.8" />
+      <module name="three-module-ribbon-consumer" target="1.8" />
+      <module name="three-module-stream-hello" target="1.8" />
+      <module name="three-module-traceA" target="1.8" />
+      <module name="three-module-traceB" target="1.8" />
+      <module name="three-module-turbine" target="1.8" />
+      <module name="three-module-turbine-amqp" target="1.8" />
+      <module name="three-third-eureka-server" target="1.8" />
+      <module name="three.module.feign-consumer" target="1.8" />
+      <module name="threepro-parent" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
