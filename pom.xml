@@ -128,8 +128,10 @@
         <module>three-module-traceA</module>
         <module>three-module-traceB</module>
 
-        <module>three-core-database</module>
         <module>three-module-config</module>
+        <module>three-core-database</module>
+        <module>three-core-foundation</module>
+        <module>three-module-account</module>
+        <module>three-api-account</module>
     </modules>
-
 </project>

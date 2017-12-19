@@ -6,12 +6,12 @@ package cn.three.core.database.base;
 
 import java.util.List;
 
-public class PageForm {
+public class PageForm<T> {
 	private int pageSize;
 	private int pageNumber;
 	private int pageCount;
 	private int recordCount;
-	private List<BaseBean> list;
+	private List<T> list;
 	public int getPageSize() {
 		return pageSize;
 	}
@@ -30,10 +30,10 @@ public class PageForm {
 	public void setPageCount(int pageCount) {
 		this.pageCount = pageCount;
 	}
-	public List<BaseBean> getList() {
+	public List<T> getList() {
 		return list;
 	}
-	public void setList(List<BaseBean> list) {
+	public void setList(List<T> list) {
 		this.list = list;
 	}
 	public int getRecordCount() {

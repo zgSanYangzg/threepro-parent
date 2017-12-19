@@ -33,7 +33,7 @@ public abstract class BaseEntity implements Serializable {
 
 	@Id
 	@Column(name = "UUID_NBR")
-	protected Long uuidNBR;
+	protected String uuidNBR;
 
 	protected Date recDate;
 
@@ -77,11 +77,11 @@ public abstract class BaseEntity implements Serializable {
 	}
 
 	@Column(name = "UUID_NBR", nullable = false)
-	public Long getUuidNBR() {
+	public String getUuidNBR() {
 		return uuidNBR;
 	}
 
-	public void setSequenceNBR(Long uuidNBR) {
+	public void setUuidNBR(String uuidNBR) {
 		this.uuidNBR = uuidNBR;
 	}
 

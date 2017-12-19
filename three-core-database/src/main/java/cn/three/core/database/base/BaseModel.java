@@ -28,7 +28,7 @@ public class BaseModel implements Serializable
 {
 	private static final long serialVersionUID = 8714060812739139000L;
 
-	protected Long uuidNBR;
+	protected String uuidNBR;
 	protected Date recDate;
 	protected String recUserId;
 	protected String recStatus;
@@ -41,7 +41,7 @@ public class BaseModel implements Serializable
 		
 	}
 	
-	public BaseModel(Long uuidNBR, Date recDate, String recUserId,
+	public BaseModel(String uuidNBR, Date recDate, String recUserId,
                      String recStatus, String extend1, String extend2, String extend3,
                      String description) {
 		super();
@@ -59,13 +59,13 @@ public class BaseModel implements Serializable
 
 	
 
-	public Long getUuidNBR() {
+	public String getUuidNBR() {
 		return uuidNBR;
 	}
 
 
 
-	public void setUuidNBR(Long uuidNBR) {
+	public void setUuidNBR(String uuidNBR) {
 		this.uuidNBR = uuidNBR;
 	}
 

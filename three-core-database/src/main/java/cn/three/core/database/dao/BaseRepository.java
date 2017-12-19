@@ -5,7 +5,6 @@ import org.springframework.data.repository.NoRepositoryBean;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
-import java.util.List;
 
 /**
  * Created by Administrator on 2017/12/6 0006.
@@ -14,5 +13,10 @@ import java.util.List;
 @Transactional(readOnly=true)
 public interface BaseRepository<T,ID extends Serializable> extends JpaRepository<T,ID> {
 
-    List<Object[]> listBySQL(String sql);
+    /*List<Object[]> listBySQL(String sql);
+
+    @Transactional
+    public void updateBySql(String sql,Object...args);
+    @Transactional
+    public void updateByHql(String hql,Object...args);*/
 }

@@ -1,14 +1,10 @@
 package cn.three.module.ribbon.command;
 
-import cn.three.module.ribbon.bo.User;
-import com.netflix.hystrix.*;
-import org.springframework.web.client.RestTemplate;
-
 /**
  * 没有测试成功.不明所以....注解方式测试通过
  * Created by Administrator on 2017/11/17 0017.
  */
-public class UserCommand extends HystrixCommand<User> {
+/*public class UserCommand extends HystrixCommand<User> {
     private RestTemplate restTemplate;
     private Long id;
 
@@ -35,4 +31,4 @@ public class UserCommand extends HystrixCommand<User> {
 
         System.out.print(u.getAge());
     }
-}
+}*/

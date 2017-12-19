@@ -3,13 +3,14 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>threepro-parent</artifactId>
         <groupId>org.threepro.showtime</groupId>
+        <artifactId>threepro-parent</artifactId>
         <version>${apis.version}</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>three-core-database</artifactId>
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
@@ -36,7 +37,25 @@
             <groupId>org.threepro.showtime</groupId>
             <artifactId>three-module-config</artifactId>
             <version>${apis.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.threepro.showtime</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
+        <dependency>
+            <groupId>org.threepro.showtime</groupId>
+            <artifactId>three-core-foundation</artifactId>
+            <version>threepro-0.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.4</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>
@@ -56,6 +75,5 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
-
     </build>
 </project>
