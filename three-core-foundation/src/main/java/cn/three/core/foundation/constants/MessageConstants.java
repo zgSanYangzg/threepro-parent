@@ -27,7 +27,7 @@ public class MessageConstants {
 
 	public static final String DATA_VALIDATION_FAILED = "数据验证失败.";
 
-	public static final String DATA_NOT_FOUND = "没有找到指定的数据.";
+	public static final String DATA_NOT_FOUND = "没有查到指定的数据.";
 	
 }
 

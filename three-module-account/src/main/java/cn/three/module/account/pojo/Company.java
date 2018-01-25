@@ -3,13 +3,16 @@ package cn.three.module.account.pojo;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-
+/**
+ * 暂时放在账户里面,感觉应该单独维护
+ */
 @Entity
 @Table(name = "DTCOMPANY")
-public class Company {
+public class Company implements Serializable {
 	@Id
 	@GeneratedValue(generator = "gd")
 	@GenericGenerator(name = "gd",strategy = "guid")

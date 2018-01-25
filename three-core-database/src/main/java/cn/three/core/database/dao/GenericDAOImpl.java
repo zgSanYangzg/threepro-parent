@@ -180,7 +180,7 @@ public class GenericDAOImpl<T> implements GenericDAO<T> {
     @Override
     public T findFirst(String sql, Map<String, Object> params) throws Exception {
         try {
-            Query query = em.createNativeQuery(enhanceSql(sql) + " rownum = 1 ", this.getEntityClass());
+            Query query = em.createNativeQuery(enhanceSql(sql) + " AND rownum = 1 ", this.getEntityClass());
             this.fillStatement(query, params);
             List<T> list = query.getResultList();
             if (!ValidationUtil.isEmpty(list)) {
@@ -233,6 +233,7 @@ public class GenericDAOImpl<T> implements GenericDAO<T> {
             if (!countsql.matches("^\\s*[sS][eE][lL][eE][cC][tT]\\s+[cC][oO][uU][nN][tT]\\(.+\\)\\s+.+")) {
                 countsql = "SELECT COUNT(1) FROM ( " + countsql + " ) COUNTTEMP";
             }
+
             Query query = em.createNativeQuery(countsql);
             this.fillStatement(query, params);
             return ((BigDecimal) query.getResultList().get(0)).longValue();
@@ -314,7 +315,7 @@ public class GenericDAOImpl<T> implements GenericDAO<T> {
         StringBuilder internalSql = new StringBuilder(sql);
         if (!ValidationUtil.isEmpty(orderBy) && !StringUtils.containsIgnoreCase(sql, "ORDER BY")) {
             internalSql.append(" ORDER BY ").append(ImprovedNamingStrategy.INSTANCE.propertyToColumnName(orderBy)).append(" ")
-                    .append(QueryOrder.contains(order) ? order : QueryOrder.desc.name());
+                    .append(QueryOrder.contains(order) ? order : QueryOrder.desc.name().toUpperCase());
         }
         Query query = em.createNativeQuery(internalSql.toString(), this.getEntityClass());
         this.fillStatement(query, params);

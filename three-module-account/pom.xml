@@ -15,6 +15,17 @@
     <dependencies>
         <dependency>
             <groupId>org.threepro.showtime</groupId>
+            <artifactId>three-module-security</artifactId>
+            <version>${apis.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>*</artifactId>
+                    <groupId>org.threepro.showtime</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.threepro.showtime</groupId>
             <artifactId>three-module-config</artifactId>
             <version>${apis.version}</version>
             <exclusions>

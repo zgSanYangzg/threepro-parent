@@ -18,21 +18,25 @@ public class CaccountServiceTests {
     AccountService accountService;
 
     @Test
-    public void findByTest(){
+    public void findByTest() {
         CAccountModel m = new CAccountModel();
         m.setCompanyID("company201009046vxdyzy4wg0000000025");
-        m.setAccountEmail("牛");
-        Page page = new Page(10,0);
+        m.setAccountEmail("test");
+        Page page = new Page(10, 0);
         try {
-            accountService.findByPage(m,"","",page);
-            System.out.print(page.getList().size());
+            accountService.findByPage(m, "", "", page);
+            for (Object obj : page.getList()) {
+                CAccountModel tm = (CAccountModel) obj;
+
+                System.out.println(tm.getAccountKey());
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     @Test
-    public void getCaccoutOnLineNumberTest(){
+    public void getCaccoutOnLineNumberTest() {
         CAccountModel m = new CAccountModel();
         m.setCompanyID("company201009046vxdyzy4wg0000000025");
         try {
@@ -44,9 +48,8 @@ public class CaccountServiceTests {
     }
 
     @Test
-    public void saveTest(){
+    public void accountTest() {
         CAccountModel m = new CAccountModel();
-        m.setAccountID("52e70eeb-c814-4257-ab26-266ce8c24772");
         m.setStaffID("cstaff201601229QHAIZP9560000000021");
         m.setCompanyID("company201009046vxdyzy4wg0000000025");
         m.setAccountName("test");
@@ -57,28 +60,18 @@ public class CaccountServiceTests {
         m.setAccountOnLine("00");
         m.setStaffName("test");
         try {
-            accountService.saveCAccount(m);
+            m = accountService.saveCAccount(m);
+            m.setAccountEmail("editest");
+            accountService.updateCaccount(m);
+            m = accountService.findAccountByOne(m.getAccountKey());
+            if (m.getAccountEmail().equals("editest")) {
+                if (accountService.changePassWord(m.getAccountKey(), "456789")) {
+                    accountService.delCAccount(m.getAccountKey());
+                }
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    @Test
-    public void findOneTest(){
-        CAccountModel m =null;
-        try {
-            m=accountService.findAccountByOne("64AFA14BB4AB4E719B543C30DEC7CA52");
-            System.out.print("findOneTest---"+m.getAccountEmail());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-    @Test
-    public void changePassTest(){
-       boolean fg =  accountService.changePassWord("64AFA14BB4AB4E719B543C30DEC7CA52","321321");
-       if(fg){
-           System.out.print("succ");
-       }else{
-           System.out.print("false");
-       }
-    }
+
 }

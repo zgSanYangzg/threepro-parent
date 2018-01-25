@@ -3,6 +3,7 @@ package cn.three.module.account.pojo;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -10,13 +11,13 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "DT_HR_STAFF")
-public class Staff {
+public class Staff implements Serializable {
     @Id
     @GeneratedValue(generator = "pg")
     @GenericGenerator(name = "pg", strategy = "guid")
     @Column(name = "STAFFKEY",length = 50,nullable = false)
     private String staffKey;
-    @Column(name = "STAFFID",length = 50)
+    @Column(name = "STAFFID",length = 50,nullable = false)
     private String staffID;
     @Column(name = "GROUPCOMPANYSN",length = 50)
     private String groupCompanySn;//集团公司标志外键

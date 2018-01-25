@@ -4,6 +4,7 @@ import cn.three.core.foundation.util.ValidationUtil;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Map;
 
 /**
@@ -13,35 +14,35 @@ import java.util.Map;
  */
 @Entity
 @Table(name = "DTCACCOUNT")
-public class CAccount {
+public class CAccount implements Serializable {
     @Id
     @GeneratedValue(generator="gd")
     @GenericGenerator(strategy = "guid",name = "gd")
     @Column(name="ACCOUNTKEY",length = 50,nullable = false)
 	private String accountKey;
-    @Column(name = "ACCOUNTID",length = 0)
+    @Column(name = "ACCOUNTID",length = 50)
     private String accountID;
-    @Column(name = "STAFFID",length = 0)
+    @Column(name = "STAFFID",length = 50)
     private String staffID;
-    @Column(name = "COMPANYID",length = 0)
+    @Column(name = "COMPANYID",length = 50)
     private String companyID;
-    @Column(name = "ACCOUNTNAME",length = 0)
+    @Column(name = "ACCOUNTNAME",length = 250)
     private String accountName;
-    @Column(name = "ACCOUNTEMAIL",length = 0)
+    @Column(name = "ACCOUNTEMAIL",length = 250)
     private String accountEmail;          //用户名
-    @Column(name = "ACCOUNTPASSWORD",length = 0)
+    @Column(name = "ACCOUNTPASSWORD",length = 250)
     private String accountPassword;       //密码
-    @Column(name = "ROLEID",length = 0)
+    @Column(name = "ROLEID",length = 250)
     private String roleID;
     /**
      * 00:正常    02：停用
      */
-    @Column(name = "ACCOUNTSTATUS",length = 0)
+    @Column(name = "ACCOUNTSTATUS",length = 2)
     private String accountStatus;
     /**
      * 01:在线　　00:不在线
      */
-    @Column(name = "ACCOUNTONLINE",length = 0)
+    @Column(name = "ACCOUNTONLINE",length = 2)
     private String accountOnLine;
     //非数据库字段
     @Transient
