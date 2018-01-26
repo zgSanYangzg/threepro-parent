@@ -59,6 +59,18 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <dependency>
+            <groupId>org.threepro.showtime</groupId>
+            <artifactId>three-module-security</artifactId>
+            <version>threepro-0.0.1</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>*</artifactId>
+                    <groupId>org.threepro.showtime</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
 
         <dependency>
             <groupId>org.springframework.boot</groupId>

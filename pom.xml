@@ -129,9 +129,12 @@
         <module>three-module-traceB</module>
 
         <module>three-module-config</module>
-        <module>three-core-database</module>
         <module>three-core-foundation</module>
+        <module>three-core-database</module>
+        <module>three-module-security</module>
         <module>three-module-account</module>
+        <module>three-module-preset</module>
+        <module>three-module-cache</module>
         <module>three-api-account</module>
     </modules>
 </project>
