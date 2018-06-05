@@ -30,6 +30,8 @@ public class CoreConstants {
 
     public static final String REFRESH_TOKEN = "refreshToken";
 
+    public static final String SUBMIT_TOKEN = "submitToken";
+
     public static final String PRODUCT = "product";
 
     public static final String PRODUCT_UNKNOWN = "UNKNOWN";
@@ -42,9 +44,12 @@ public class CoreConstants {
 
     public static final String EXPIRE = "expire";
 
-    public static final String USERID = "userId";
+    public static final String STAFFID="staffId";
 
-    public static final String SUBMIT_TOKEN = "submitToken";
+    public static final String COMPANYID="companyId";
+
+    public static final String ENCRYPT_KEYT="wfjttsw";
+    public static final String USERID = "userId";
 
     public static final String TRACEID = "traceId";
 
@@ -134,4 +139,8 @@ public class CoreConstants {
     public static final String DATAFORMAT_STR = "yyyyMMddHHmmssSSS";
 
     public static final String DEFAULT_SALT = "DEFAULT";//默认加密盐
+
+    public static final String JWT_ALG="HS256";
+
+    public static final String JWT_TYP="JWT";
 }

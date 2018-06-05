@@ -1,7 +1,6 @@
 package cn.three.module.account.service;
 
-import cn.three.module.security.model.CRoleModel;
-import cn.three.module.security.service.RoleService;
+import cn.three.module.account.pojo.model.CRoleModel;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

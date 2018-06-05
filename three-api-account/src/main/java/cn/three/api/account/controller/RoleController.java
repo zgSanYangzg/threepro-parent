@@ -1,8 +1,8 @@
 package cn.three.api.account.controller;
 
 import cn.three.core.database.base.Page;
-import cn.three.module.security.model.CRoleModel;
-import cn.three.module.security.service.RoleService;
+import cn.three.module.account.pojo.model.CRoleModel;
+import cn.three.module.account.service.RoleService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="three-api-account:war">
+    <output-path>$PROJECT_DIR$/three-api-account/target</output-path>
+    <root id="archive" name="three-api-account-threepro-0.0.1.war">
+      <element id="artifact" artifact-name="three-api-account:war exploded" />
+    </root>
+  </artifact>
+</component>

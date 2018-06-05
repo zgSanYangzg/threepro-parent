@@ -1,7 +1,7 @@
 package cn.three.api.account.controller;
 
 import cn.three.core.database.base.Page;
-import cn.three.module.account.pojo.CAccountModel;
+import cn.three.module.account.pojo.model.CAccountModel;
 import cn.three.module.account.service.AccountService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -49,24 +49,26 @@ public class AccountController {
         return model;
     }
 
-    @ApiOperation(value = "保存帐号方法", notes = "saveCaccount")
+    @ApiOperation(value = "增加用户", notes = "保存帐号方法saveCaccount")
     @PostMapping("/ea_saveCaccount")
     public CAccountModel saveCaccount(@RequestBody CAccountModel caccountModel) throws Exception {
         return service.saveCAccount(caccountModel);
     }
 
-    @ApiOperation(value = "修改账户", notes = "editCaccount")
+    @ApiOperation(value = "修改用户", notes = "editCaccount")
     @PostMapping("/ea_editCaccount")
     public CAccountModel editCaccount(@RequestBody CAccountModel caccountModel) throws Exception {
 
         return service.updateCaccount(caccountModel);
     }
 
-    @ApiOperation(value = "删除帐号", notes = "delCaccount")
+    @ApiOperation(value = "删除用户", notes = "delCaccount")
     @ApiImplicitParam(name = "accountKey", value = "帐号key", required = true)
     @DeleteMapping("/ea_delCaccount")
     public void delCaccount(String accountKey) throws Exception {
         service.delCAccount(accountKey);
 
     }
+    //禁用用户
+
 }

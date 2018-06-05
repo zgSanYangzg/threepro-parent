@@ -2,22 +2,25 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/three-api-account" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/three-api-gateway" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/three-api-hello" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/three-core-database" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/three-core-database-spr" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/three-core-foundation" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/three-hotdeploy-devtools" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/three-module-account" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/three-module-cache" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/three-module-config" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/three-module-config-client" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/three-module-config-server" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/three-module-dashboard" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/three-module-feign-consumer" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/three-module-hello" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/three-module-invoicing" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/three-module-preset" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/three-module-rabbitmq-hello" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/three-module-ribbon-consumer" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/three-module-security" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/three-module-stream-hello" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/three-module-supermarket" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/three-module-traceA" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/three-module-traceB" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/three-module-turbine" charset="UTF-8" />

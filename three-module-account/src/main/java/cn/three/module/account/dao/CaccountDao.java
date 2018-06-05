@@ -3,7 +3,7 @@ package cn.three.module.account.dao;
 import cn.three.core.database.base.Page;
 import cn.three.core.database.dao.GenericDAO;
 import cn.three.module.account.pojo.CAccount;
-import cn.three.module.account.pojo.CAccountModel;
+import cn.three.module.account.pojo.model.CAccountModel;
 
 import java.util.List;
 

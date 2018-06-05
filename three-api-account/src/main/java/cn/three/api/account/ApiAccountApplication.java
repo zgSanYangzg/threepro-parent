@@ -11,7 +11,7 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan(basePackages = "cn.three.**")
 public class ApiAccountApplication {
 
-    public static void main(String[] args){
+    public static  void main(String[] args){
         SpringApplication.run(ApiAccountApplication.class,args);
     }
 }

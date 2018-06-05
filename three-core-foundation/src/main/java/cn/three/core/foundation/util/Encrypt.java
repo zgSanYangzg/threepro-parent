@@ -1,5 +1,12 @@
 package cn.three.core.foundation.util;
 
+import cn.three.core.foundation.constants.CoreConstants;
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.JWTVerifier;
+import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.interfaces.Claim;
+import com.auth0.jwt.interfaces.DecodedJWT;
+import org.bouncycastle.crypto.tls.SignatureAlgorithm;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import sun.misc.BASE64Decoder;
@@ -14,6 +21,8 @@ import java.security.Key;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 /**
@@ -47,6 +56,7 @@ public class Encrypt {
     public Key getKey() {
         return key;
     }
+
     /**
      * md5加密算法 TODO.
      *
@@ -78,23 +88,6 @@ public class Encrypt {
         return md5StrBuff.toString();
     }
 
-    /**
-     * 根据参数生成 KEY
-     */
-    private static void setKey() {
-        try {
-            SecureRandom secureRandom = SecureRandom.getInstance("SHA1PRNG");
-            secureRandom.setSeed(salt.getBytes());
-
-            KeyGenerator kg = null;
-            kg = KeyGenerator.getInstance("DES");
-            kg.init(secureRandom);
-            key = kg.generateKey();
-            kg = null;
-        } catch (Exception e) {
-            throw new RuntimeException("Error initializing SqlMap class. Cause: " + e);
-        }
-    }
 
     /**
      * TODO. 采用DES方式 加密 字符串
@@ -148,51 +141,6 @@ public class Encrypt {
         return strMing;
     }
 
-    public static void main(String[] args) {
-        System.out.println(IrreversibleMD5("appid=wxccf08eaa87876595&attach=支付测试&body=JSAPI支付测试&mch_id=1417876402&nonce_str=1add1a30ac87aa2db72f57a2375d8fec&notify_url=http://wxpay.wxutil.com/pub_v2/pay/notify.v2.php&openid=o5b750N_mF4rhhrZN_15Q1k1Jpr4&out_trade_no=20161215183722159456&spbill_create_ip=14.23.150.211&total_fee=1&trade_type=JSAPI"));
-    }
-
-    /**
-     * 加密以 byte[] 明文输入 ,byte[] 密文输出
-     *
-     * @param byteS
-     * @return
-     */
-    private static byte[] encryptByte(byte[] byteS) {
-        byte[] byteFina = null;
-        Cipher cipher;
-        try {
-            cipher = Cipher.getInstance("DES");
-            cipher.init(Cipher.ENCRYPT_MODE, key);
-            byteFina = cipher.doFinal(byteS);
-        } catch (Exception e) {
-            throw new RuntimeException("Error initializing SqlMap class. Cause: " + e);
-        } finally {
-            cipher = null;
-        }
-        return byteFina;
-    }
-
-    /**
-     * 解密以 byte[] 密文输入 , 以 byte[] 明文输出
-     *
-     * @param byteD
-     * @return
-     */
-    private static byte[] decryptByte(byte[] byteD) {
-        Cipher cipher;
-        byte[] byteFina = null;
-        try {
-            cipher = Cipher.getInstance("DES");
-            cipher.init(Cipher.DECRYPT_MODE, key);
-            byteFina = cipher.doFinal(byteD);
-        } catch (Exception e) {
-            throw new RuntimeException("Error initializing SqlMap class. Cause: " + e);
-        } finally {
-            cipher = null;
-        }
-        return byteFina;
-    }
 
     /**
      * 采用 DES 算法加密文件 文件 file 进行加密并保存目标文件 destFile 中
@@ -258,6 +206,43 @@ public class Encrypt {
         return result.toString();
     }
 
+    public static String md5ForAuth(String password, String salt) {
+        return md5WithoutPadding(md5WithoutPadding(password) + salt);
+    }
+
+    /**
+     * 不要存储敏感信息,不要存储太多信息.谨慎
+     *
+     * @param staffId
+     * @param companyId
+     * @param expireDate
+     * @return
+     * @throws Exception
+     */
+    public static String encryptByJWT(String staffId, String companyId, String expireDate) throws Exception {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("alg", CoreConstants.JWT_ALG);
+        map.put("typ", CoreConstants.JWT_TYP);
+        String token = JWT.create()
+                .withHeader(map)//header
+                .withClaim(CoreConstants.STAFFID, staffId)//payload
+                .withClaim(CoreConstants.COMPANYID, companyId)
+                .withClaim(CoreConstants.EXPIRE, expireDate)
+                .sign(Algorithm.HMAC256(CoreConstants.ENCRYPT_KEYT));//加密
+        return token;
+    }
+
+    public static Map<String, String> dencryptByJWT(String token) throws Exception {
+        Map<String, String> map = new HashMap<String, String>();
+        JWTVerifier verifier = JWT.require(Algorithm.HMAC256(CoreConstants.ENCRYPT_KEYT)).build();
+        DecodedJWT jwt = verifier.verify(token);
+        Map<String, Claim> claims = jwt.getClaims();
+        map.put(CoreConstants.COMPANYID, claims.get(CoreConstants.COMPANYID).asString());
+        map.put(CoreConstants.STAFFID, claims.get(CoreConstants.STAFFID).asString());
+        map.put(CoreConstants.EXPIRE, claims.get(CoreConstants.EXPIRE).asString());
+        return map;
+    }
+
     /**
      * TODO.没有补位的MD5加密,统一使用大写
      *
@@ -282,9 +267,77 @@ public class Encrypt {
         return md5StrBuff.toString().toUpperCase();
     }
 
-    public static String md5ForAuth(String password, String salt) {
-        return md5WithoutPadding(md5WithoutPadding(password) + salt);
+    /**
+     * 加密以 byte[] 明文输入 ,byte[] 密文输出
+     *
+     * @param byteS
+     * @return
+     */
+    private static byte[] encryptByte(byte[] byteS) {
+        byte[] byteFina = null;
+        Cipher cipher;
+        try {
+            cipher = Cipher.getInstance("DES");
+            cipher.init(Cipher.ENCRYPT_MODE, key);
+            byteFina = cipher.doFinal(byteS);
+        } catch (Exception e) {
+            throw new RuntimeException("Error initializing SqlMap class. Cause: " + e);
+        } finally {
+            cipher = null;
+        }
+        return byteFina;
+    }
+
+    /**
+     * 解密以 byte[] 密文输入 , 以 byte[] 明文输出
+     *
+     * @param byteD
+     * @return
+     */
+    private static byte[] decryptByte(byte[] byteD) {
+        Cipher cipher;
+        byte[] byteFina = null;
+        try {
+            cipher = Cipher.getInstance("DES");
+            cipher.init(Cipher.DECRYPT_MODE, key);
+            byteFina = cipher.doFinal(byteD);
+        } catch (Exception e) {
+            throw new RuntimeException("Error initializing SqlMap class. Cause: " + e);
+        } finally {
+            cipher = null;
+        }
+        return byteFina;
+    }
+
+    /**
+     * 根据参数生成 KEY
+     */
+    private static void setKey() {
+        try {
+            SecureRandom secureRandom = SecureRandom.getInstance("SHA1PRNG");
+            secureRandom.setSeed(salt.getBytes());
+
+            KeyGenerator kg = null;
+            kg = KeyGenerator.getInstance("DES");
+            kg.init(secureRandom);
+            key = kg.generateKey();
+            kg = null;
+        } catch (Exception e) {
+            throw new RuntimeException("Error initializing SqlMap class. Cause: " + e);
+        }
     }
 
 
+    public static void main(String[] args) {
+        System.out.println(IrreversibleMD5("appid=wxccf08eaa87876595&attach=支付测试&body=JSAPI支付测试&mch_id=1417876402&nonce_str=1add1a30ac87aa2db72f57a2375d8fec&notify_url=http://wxpay.wxutil.com/pub_v2/pay/notify.v2.php&openid=o5b750N_mF4rhhrZN_15Q1k1Jpr4&out_trade_no=20161215183722159456&spbill_create_ip=14.23.150.211&total_fee=1&trade_type=JSAPI"));
+
+        try {
+            String a =Encrypt.encryptByJWT("sccid20160728PR63NA7S4T0000004248","contactCompany20171026TDY24NI97F0000001715","20L");
+            System.out.println(a);
+            Map<String,String> b =Encrypt.dencryptByJWT(a);
+            System.out.println(b.get(CoreConstants.STAFFID));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

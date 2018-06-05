@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/three-api-account" />
     <file type="web" url="file://$PROJECT_DIR$/three-core-database" />
     <file type="web" url="file://$PROJECT_DIR$/three-hotdeploy-devtools" />
   </component>
@@ -25,7 +26,14 @@
         <option value="$PROJECT_DIR$/three-core-database-spr/pom.xml" />
         <option value="$PROJECT_DIR$/three-module-activemq/pom.xml" />
         <option value="$PROJECT_DIR$/three-module-api-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/three-module-config-client/pom.xml" />
+        <option value="$PROJECT_DIR$/three-module-config-server/pom.xml" />
+        <option value="$PROJECT_DIR$/three-module-ribbon-consumer/pom.xml" />
         <option value="$PROJECT_DIR$/three-module-server-config/pom.xml" />
+        <option value="$PROJECT_DIR$/three-module-traceA/pom.xml" />
+        <option value="$PROJECT_DIR$/three-module-traceB/pom.xml" />
+        <option value="$PROJECT_DIR$/three-module-turbine-amqp/pom.xml" />
+        <option value="$PROJECT_DIR$/three-module-turbine/pom.xml" />
       </set>
     </option>
   </component>
